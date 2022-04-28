@@ -9,5 +9,8 @@ public class Transaction {
     private int amountSize;
     private String strategy;
     private String authorization;
+    private String email;
+    private String password;
+    private String captcha;
 
 }

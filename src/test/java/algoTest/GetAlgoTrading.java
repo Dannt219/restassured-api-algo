@@ -1,6 +1,8 @@
 package algoTest;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import model.Transaction;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +14,21 @@ public class GetAlgoTrading {
     public void init() {
         RestAssured.baseURI = "https://api.tokenize-dev.com/api";
         RestAssured.basePath = "/setting";
+    }
 
+    @Test
+    public void postLogin() {
+        Transaction body = new Transaction();
+        body.setEmail("");
+        body.setPassword("");
+        body.setCaptcha("");
+
+        Response res = given()
+                .header("Authorization", "")
+                .contentType(ContentType.JSON)
+                .when()
+                .body(body)
+                .post("");
     }
     @Test
     public void getListAlgoTradingSetting() {
